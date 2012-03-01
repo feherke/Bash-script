@@ -1,0 +1,14 @@
+1.0 May 2004
+  [+] Initial release.
+
+1.1 September 2008
+  [+] Alerts with the first tool found in a list of 10 notification tools :
+      xmessage, Xdialog, kdialog, gdialog, zenity, xterm, eterm, aterm, terminal, konsole
+
+1.2 November 2010
+  [+] Added 3 more notification tools :
+      yad, vte, rxvt
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )

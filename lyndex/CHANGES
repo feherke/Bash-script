@@ -1,0 +1,12 @@
+1.0 - September 2005
+  [+] Initial release.
+
+1.0b - October 2005
+  [*] Exclude duplications when more URLs are pointing to the same content.
+  [+] Exclude too short words ( option minword ).
+  [+] Poor ASCII art recognition by watching characters repeated multiple times ( option maxaart ).
+  [+] Spell checking ( option spellcheck ).
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )

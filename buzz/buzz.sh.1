@@ -1,0 +1,45 @@
+.\" buzz.sh - displays a predefined message at a given time
+.TH buzz.sh 1 1.1 "September 2008" "Usefull Shell Script"
+.SH NAME
+\fBbuzz.sh\fP - displays a predefined message at a given time
+.SH SYNOPSIS
+\fBbuzz.sh\fP \fItime\fP
+.SH OPTIONS
+.TP
+\fItime\fP
+absolute or relative time, as required by at :
+.RS
+.PP
+H day-part
+.PP
+HH:MM [month-name DD [YY[YY]]]
+.PP
+HH:MM DD.MM.YY
+.PP
+now + count time-unit
+.RE
+.SH DESCRIPTION
+Schedules an \fBat\fP(1) job to pop up a message using various commands.
+.PP
+Currently the following commands are supported :
+\fBxmessage\fP(1), \fBXdialog\fP(1), \fBkdialog\fP(1), \fBgdialog\fP(1), \fBzenity\fP(1), \fBxterm\fP(1), \fBeterm\fP(1), \fBaterm\fP(1), \fBterminal\fP(1), \fBkonsole\fP(1).
+If none of the commands is found, the message be simply written to \fBstdout\fP, letting the daemon to deliver it to the local mailbox.
+.PP
+This script was optimized for simplicity, there is no explicit configuration. However the order of checking for the above commands and the predefined message can be
+easily modified in the script itself.
+.SH ENVIRONMENT
+.TP
+\fBDISPLAY\fP
+The value of the current \fBDISPLAY\fP is set for the job. If not set, displaying the message by the \fBatd\fP(8) will probably fail.
+.SH SEE ALSO
+\fBbash\fP(1), \fBat\fP(1);
+\fBxmessage\fP(1), \fBXdialog\fP(1), \fBkdialog\fP(1), \fBgdialog\fP(1), \fBzenity\fP(1), \fBxterm\fP(1), \fBeterm\fP(1), \fBaterm\fP(1), \fBterminal\fP(1), \fBkonsole\fP(1)
+.SH TO DO
+Add more commands to display the messages.
+Better configuration for the currently used commands.
+.SH BUGS
+No bugs until now. Found bugs can be reported to the author.
+.SH COPYRIGHT
+Use it healthy.
+.SH AUTHOR
+Feherke

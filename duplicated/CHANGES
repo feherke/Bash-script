@@ -1,0 +1,20 @@
+1.0 - 2006
+  [+] Initial release, just a proof of concept compared to similar Java and Perl implementations.
+
+1.1
+  [*] Transformed into usable script.
+
+1.2 - April 2007
+
+1.3 - March 2007
+  [*] Changed to work with older md5sum versions too.
+  [+] New -s size parameter to exclude small files.
+  [+] New -a algorithm parameter to set the checksum algorithm used for comparing ( MD5 and SHA1 supported ).
+
+1.4 - August 2008
+  [*] Minor optimizations.
+  [*] Portable sh code replaced with Bash specific alternatives.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )

@@ -1,0 +1,84 @@
+.\" killrenegade.sh - kill processes exceeding limits
+.TH killrenegade.sh 1 1.2 "August 2008" "Usefull Shell Script"
+.SH NAME
+\fBkillrenegade.sh\fP - kill processes exceeding limits
+.SH SYNOPSIS
+\fBkillrenegade.sh\fP [\fB-i\fP \fIinifile\fP] [\fB-V\fP]
+.SH OPTIONS
+.TP
+\fB-i\fP \fIinifile\fP, \fB--ini=\fP\fIinifile\fP
+settings file to be read ( default : killrenegade.ini )
+.TP
+\fB-V\fP, \fB--verbose\fP
+verbose mode, use twice for more verbose ( default : no )
+.SH DESCRIPTION
+Kill the processes with given name which use to much resources.
+.PP
+The script run endless, checking for processes that match the given conditions. Between steps will sleep until the next scheduled hunt time. Building the statistic is done when awake for a check.
+.SH SYNTAX
+In the settings file are separate sections for each job. Exception is the \fIgeneral\fP section, which contains just some preferences.
+The other sections describe a process hunting each, excepting the section \fIdefault\fP. It contains default values to use if in a section some options are not set.
+.PP
+The section names are only identifiers, the keys in each section could be :
+.TP
+\fBcommand\fP
+command name to kill, can not be empty 
+.TP
+\fBuser\fP
+list of users desired to be treated different than othes
+.TP
+\fBbelong\fP
+ownership relation of users in the list and processes :
+.RS
+.TP
+\fIyes\fP
+kill only processes owned by the enumerated users
+.TP
+\fIno\fP
+do not kill processes owned by the enumerated users
+.RE
+.TP
+\fBprocessor\fP
+percentage of processor usage,over which processes will be killed
+.TP
+\fBmemory\fP
+percentage of memory usage, over which processes will be killed
+.TP
+\fBsignal\fP
+list of signals to send to the processes; if a send fails, the next signal will be sent
+.TP
+\fBinterval\fP
+sleeping interval between checks; the script will wake up only when is time to hunt
+.SH EXIT STATUS
+.TP
+\fB0\fP
+ok, done successfull
+.TP
+\fB1\fP
+the settings file was not found
+.TP
+\fB2\fP
+the settings file contains errors
+.SH ENVIRONMENT
+.TP
+\fIUSER\fP
+the current user's name is used to see who's processes can be killed; if is not \fIroot\fP, can kill only own processes
+.SH FILES
+.TP
+\fBkillrenegade.ini\fP
+in facts is the name of the script with extension changed to .ini
+.TP
+\fBkillstatistic.awk\fP
+an \fBawk\fP(1) script to build HTML statistic from the plain text log file
+.SH SEE ALSO
+\fBbash\fP(1), \fBkill\fP(1), \fBps\fP(1);  \fBsleep\fP(1), \fBawk\fP(1)
+.PP
+comments in \fBkillrenegade.ini\fP, I hope you kept a clear copy
+.SH TO DO
+Maybe a clemency option, to not kill processes the first time they are caught over limit.
+.SH BUGS
+No bugs until now. Found bugs can be reported to the author.
+.SH COPYRIGHT
+Use it healthy.
+.SH AUTHOR
+Feherke

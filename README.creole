@@ -1,0 +1,16 @@
+= Bash Script
+
+The [[http://gnu.org/project/bash/|Bash]] shell used as default shell on GNU/Linux operating system is a versatile enhancement of the Bourne shell, suitable for use as
+interactive command processor and as script interpreter.
+
+This repository contains a collection of scripts, each directory contains one script and the related files.
+
+Here are some scripts I wrote.
+
+* **buzz.sh** - Schedules an at job to pop up a message using various commands.
+* **cookieclean.sh** - Cleans up the Mozilla cookie file removing unwanted items.
+* **duplicated.sh** - Create a list of all duplicated files based on comparing their checksums.
+* **killrenegade.sh** - Kill the processes with given name which use to much resources.
+* **lyndex.sh** - Create a word index from the Lynx traversal crawl files. 
+
+These scripts were intentionally kept short. For details see the [[http://feherke.github.com/bash/|Bash section of my site]].

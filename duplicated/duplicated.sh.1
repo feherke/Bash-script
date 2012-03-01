@@ -1,0 +1,62 @@
+.\" duplicated.sh - search for multiple files with the same content
+.TH duplicated.sh 1 1.4 "August 2008" "Usefull Shell Script"
+.SH NAME
+\fBduplicated.sh\fP - search for multiple files with the same content
+.SH SYNOPSIS
+\fBduplicated.sh\fP [\fB-s\fP \fIsize\fP] [\fB-a\fP \fIalgorithm\fP] [\fIdirectory\fP [\fI...\fP]]
+.SH OPTIONS
+.TP
+\fB-s\fP \fIsize\fP, \fB--size=\fP\fIsize\fP
+file size limit; files smaller than the limit are not checked ( default : 0 )
+.TP
+\fB-a\fP \fIalgorithm\fP, \fB--algo=\fP\fIalgorithm\fP
+checksum algorithm; possible values : \fBMD5\fP \fBSHA1\fP  ( default : \fBMD5\fP )
+.TP
+\fIdirectory\fP
+path to directory to be included in search ( default : . )
+.SH DESCRIPTION
+Searches recursively the given directories and checks for duplicated content using checksums.
+.PP
+Checksum calculation is quite slow, so first the files are checked by size. For files with unique size the checksums are not calculated.
+.PP
+As the MD5 checksum is calculated somehow faster, is recommended to be used as possible.
+.PP
+This script was optimized for speed and kept compatible with old versions of the used tools.
+.SH EXIT STATUS
+.TP
+\fB0\fP
+ok, done successfull
+.TP
+\fB1\fP
+invalid parameter, one of the following
+.RS
+.TP
+one or more of the specified directories does not exist
+.TP
+the specified size is not a positive integer
+.TP
+the specified checksum algorithm is not known
+.RE
+.TP
+\fB2\fP
+checksum tool not found :
+.RS
+.TP
+\fBmd5sum\fP for MD5 checksum algorithm
+.TP
+\fBsha1sum\fP for SHA1 checksum algorithm
+.RE
+.SH FILES
+.TP
+\fBduplicated.txt\fP
+the list of all duplicated files, grouped by identical content, groups separated with an empty line
+.SH SEE ALSO
+\fBbash\fP(1), \fBfind\fP(1), \fBmd5sum\fP(1), \fBsha1sum\fP(1);  \fBuniq\fP(1), \fBgrep\fP(1), \fBawk\fP(1), \fBxargs\fP(1)
+.SH TO DO
+Work with more checksum tools, for example \fBopenssl\fP(1).
+.SH BUGS
+No bugs until now. Found bugs can be reported to the author.
+.SH COPYRIGHT
+Use it healthy.
+.SH AUTHOR
+Feherke

@@ -1,0 +1,14 @@
+1.0
+  [+] Initial release, as killoperamotifwrapper.sh .
+
+1.1 - July 2005
+  [+] Made configurable and able to kill any process.
+
+1.2 - August 2008
+  [*] Minor optimizations.
+  [*] Portable sh code replaced with Bash specific alternatives.
+  [+] Added GNU-style long option alternatives.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )

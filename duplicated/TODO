@@ -1,0 +1,2 @@
+* Work with more checksum tools, for example openssl(1).
+* Add another comparison before calculating checksums. Either directly compare head output or the checksum of head.

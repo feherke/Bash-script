@@ -1,0 +1,15 @@
+1.0 - July 2004
+  [+] Initial release as AWK script.
+
+1.1 - 2008
+  [*] Complete rewrite as Bash script.
+
+1.2 - 2008
+  [+] Added FireFox 3 support, to clean up cookies stored in SQLite database.
+
+1.3 - August 2008
+  [+] Cache the expressions built from the allowed hosts list.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )
