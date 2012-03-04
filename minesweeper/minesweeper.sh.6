@@ -1,0 +1,58 @@
+.\" minesweeper.sh - the classic game in text mode
+.TH minesweeper.sh 6 "August 2008" "1.1" "Text mode game"
+.SH NAME 
+\fBminesweeper.sh\fP - the classic game in text mode
+.SH SYNOPSIS
+\fBminesweeper.sh\fP
+.SH DESCRIPTION
+The conceptually good games are not tied to the graphic environment or fancy
+input devices. And they absolutely not need cheap visual effects. In text mode
+you can enjoy the real flavour of the game.
+.SH OPTIONS
+none
+.SH RULES
+The board is composed by square of stones and a number of randomly placed mines,
+under the stones. The goal is to mark all the mined stones with flags. When you
+step on a stone, if under that one is a mine, you die and the game is over. Else
+the stone is removed. If there is no mine neighter under the nearest stones,
+then they will be also removed, until a mine is aproached. In the place of the
+removed stones a number will appear which show how many of the nearest stones
+are mined.
+.SH KEYS
+For the movements more keys are associated ( Beside this, also the arrow keys
+should work. ) :
+.IP
+.nf
+layout    left  down  up  right  step   flag
+Vi        \fBh\fP     \fBj\fP     \fBk\fP   \fBl\fP      \fBg\fP      \fBf\fP
+Lefthand  \fBa\fP     \fBs\fP     \fBw\fP   \fBd\fP      \fBSpace\fP  \fBf\fP
+Numeric   \fB4\fP     \fB2\fP     \fB8\fP   \fB6\fP      \fBEnter\fP  \fB0\fP
+.fi
+.PP
+The size of the board is choosen by the key used to start a new game, as follows :
+.IP
+.nf
+key  board   size   mines
+\fBn\fP    Small   10*10  15
+\fBN\fP    Medium  15*15  33
+\fBm\fP    Large   20*20  60
+\fBM\fP    Extra   30*20  90
+.fi
+.PP
+And some other keys :
+.IP
+.nf
+key  command
+\fBr\fP    redraw the board
+\fBq\fP    quit the script
+.fi
+.SH SEE ALSO
+\fBbash\fP(1), \fBtput\fP(1), \fBterminfo\fP(5)
+.SH TO DO
+Would be nice to keep the high scores somewhere.
+.SH BUGS
+Probably the key handling will not work on some terminals.
+.SH COPYRIGHT
+Use it healthy.
+.SH AUTHOR
+<feherke (SHREK) rootshell (FIONA) be>

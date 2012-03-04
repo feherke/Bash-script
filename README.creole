@@ -1,6 +1,6 @@
 = Bash Script
 
-The [[http://gnu.org/project/bash/|Bash]] shell used as default shell on GNU/Linux operating system is a versatile enhancement of the Bourne shell, suitable for use as
+The [[http://gnu.org/s/bash/|Bash]] shell used as default shell on GNU/Linux operating system is a versatile enhancement of the Bourne shell, suitable for use as
 interactive command processor and as script interpreter.
 
 This repository contains a collection of scripts, each directory contains one script and the related files.
@@ -11,6 +11,7 @@ Here are some scripts I wrote.
 * **cookieclean.sh** - Cleans up the Mozilla cookie file removing unwanted items.
 * **duplicated.sh** - Create a list of all duplicated files based on comparing their checksums.
 * **killrenegade.sh** - Kill the processes with given name which use to much resources.
-* **lyndex.sh** - Create a word index from the Lynx traversal crawl files. 
+* **lyndex.sh** - Create a word index from the Lynx traversal crawl files.
+* **minesweeper.sh** - The classic mine sweeper game in text mode.
 
 These scripts were intentionally kept short. For details see the [[http://feherke.github.com/bash/|Bash section of my site]].
