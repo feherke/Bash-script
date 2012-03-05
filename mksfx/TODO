@@ -1,0 +1,3 @@
+* Is somehow strange the use of the temporary directory, so it probably will be made optional.
+* Also optionally some integrity check would be nice.
+* Allow choosing from multiple compression methods.

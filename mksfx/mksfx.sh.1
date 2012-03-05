@@ -1,0 +1,41 @@
+.\" mksfx.sh - make selfextractor archive
+.TH mksfx.sh 1 1.1 "August 2008" "Usefull Shell Script"
+.SH NAME
+\fBmksfx.sh\fP - make SelFeXtractor archive
+.SH SYNOPSIS
+\fBmksfx.sh\fP [\fB-x\fP \fIsfxname\fP] [\fB-c\fP \fIcompression\fP] [\fB-r\fP \fIrunname\fP] [\fIdirectory\fP]
+.SH OPTIONS
+.TP
+\fIdirectory\fP
+name of the directory to compress (default : current directory)
+.TP
+\fB-x\fP \fIsfxname\fP, \fB--sfx=\fP\fIsfxname\fP
+file name to create (default : same as for \fIdirectory\fP)
+.TP
+\fB-c\fP \fIcompression\fP, \fB--compress=\fP\fIcompression\fP
+compression method, could be : \fBgzip\fP, \fBbzip2\fP (default : \fBgzip\fP)
+.TP
+\fB-r\fP \fIrunname\fP, \fB--run=\fP\fIrunname\fP
+name of the file to run after uncompressing (default : \fBrun.sh\fP)
+.SH DESCRIPTION
+Compress the archived content of a directory, then add an autoextract head to
+the file, so it will look and act as a \fBbash\fP(1) script. The executable head
+is kept small and simple, so there are no paranoia checkings included.
+.PP
+When the current directory is comperessed, the script will exclude itself from
+the archive.
+.PP
+When the selfextractor is executed, it's header part will decompress it's data
+part to a random named temporary directory in the \fI/tmp/\fP directory, then
+if an autorun script exist, will run it.
+.SH SEE ALSO
+\fBbash\fP(1), \fBgzip\fP(1), \fBbzip2\fP(1), \fBtar\fP(1);  \fBsed\fP(1), \fBgrep\fP(1), \fBmktemp\fP(1)
+.SH TO DO
+Is somehow strange the use of the temporary directory, so it probably will be
+made optional. Also optionally some integrity check would be nice.
+.SH BUGS
+No bugs until now. Found bugs can be reported to the author.
+.SH COPYRIGHT
+Use it healthy.
+.SH AUTHOR
+Feherke

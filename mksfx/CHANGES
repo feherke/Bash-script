@@ -1,0 +1,11 @@
+1.0 - May 2005
+  [+] Initial release.
+
+1.1 - August 2008
+  [*] Minor optimizations.
+  [*] Portable sh code replaced with Bash specific alternatives.
+  [+] Added GNU-style long option alternatives.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )
