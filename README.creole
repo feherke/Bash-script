@@ -13,5 +13,7 @@ Here are some scripts I wrote.
 * **killrenegade.sh** - Kill the processes with given name which use to much resources.
 * **lyndex.sh** - Create a word index from the Lynx traversal crawl files.
 * **minesweeper.sh** - The classic mine sweeper game in text mode.
+* **mksfx.sh** - Add a shell script header to a compressed file, to make it selfextractor.
+* **mpc.sh** - Just a rudimental frontend for the most basic music playing functionalities.
 
 These scripts were intentionally kept short. For details see the [[http://feherke.github.com/bash/|Bash section of my site]].

@@ -1,0 +1,35 @@
+1.0 - May 2008
+  [+] Initial release.
+
+1.1 - September 2008
+  [+] Volume adjusting :
+    - mute ( key m )
+    - set volume percentage ( key 1..9 = number*10% )
+    - set volume to maximum ( key 0 )
+
+1.2 - September 2008
+  [+] Title display.
+
+1.4 - July 2010
+  [+] Progress display.
+
+1.5 - November 2010
+  [*] Notice instead of progress for content through http:// .
+  [+] Play single entry ( key i ).
+  [+] Toggle 2 second crossfade ( key f ).
+  [+] Playlist loading :
+    - display playlist list ( key p )
+    - load playlist exclusively ( key a..z )
+    - append playlist ( key A..Z )
+
+1.6 - May 2011
+  [+] Play current again ( key a ).
+  [+] Status information ( key ? ).
+  [+] Playlist pager :
+    - switch to given page ( key 1..0 )
+    - switch to next page ( key + )
+    - switch to previous page ( key - )
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )
