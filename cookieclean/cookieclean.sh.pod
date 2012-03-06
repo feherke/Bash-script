@@ -1,0 +1,166 @@
+--name=cookieclean.sh
+--release=1.3
+--date=September 2008
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<cookieclean.sh> - cleans up the Mozilla cookie file removing unwanted items
+
+=head1 SYNOPSIS
+
+B<cookieclean.sh>
+
+=head1 OPTIONS
+
+none
+
+=head1 DESCRIPTION
+
+Just removes those cookies from the Mozilla cookie files which hosts are not enumerated in the permitted hosts file.
+This way your access to sites depending on cookies is not blocked but the unneccessary cookies disappears overnight.
+Also the cookies which store useful information for you will remain.
+
+This script was designed to be run from cron, so it outputs its messages to a log file.
+Excepting of course unexpected and unhandled errors...
+
+=head1 SYNTAX
+
+=head2 Configuration file
+
+Lines starting with hash ( # ) are comments. Comments and empty lines are ignored.
+
+=over
+
+=item B<mozilla>
+
+Path to the profile directory ( deprecated, use B<profile> key ).
+This was kept for backward compatibility only. Unlike B<profile>, it can be specified only once.
+
+  mozilla=/home/master/.mozilla/default/v5rkwo4n.slt/
+
+=item B<profile>
+
+Path to the profile directory of a Mozilla browser ( Mozilla, Phoenix, FireBird, SeaMonkey, FireFox )
+You can use multiple B<profile> keys. At least one must be specified. ( Unless you use the deprecated B<mozilla> key. )
+
+  profile=/home/master/.mozilla/firefox/xie5eflf.default/
+  profile=/home/master/.mozilla/seamonkey/e81zpwiz.default/
+  profile=/home/master/.phoenix/default/10z08gzf.slt/
+  profile=/home/master/.gnome2/epiphany/
+
+=item B<okfile>
+
+File containing the list of permitted hosts ( see B<Permitted host file> below ).
+The file's existance is mandatory. If the key is not specified, it defaults to the script name with "-ok.txt" suffix appended.
+
+  okfile=${scriptdir}/cookieclean.ok
+
+=item B<badfile>
+
+File containing the list of found unpermitted hosts. It has the format of a F<cookies.txt> file, even if was extracted from an SQLite database.
+If the key is not specified, it defaults to the script name with "-bad.txt" suffix appended.
+
+  badfile=${scriptdir}/cookieclean.bad
+
+=item B<logfile>
+
+Activity log file. It contains information about how the script accomplished its job or why not.
+If the key is not specified, it defaults to the script name with ".log" suffix appended.
+
+  logfile=${scriptdir}/${scriptname}.log
+
+=item B<cachefile>
+
+The cached expression of the transformed permitted host list. It is suitable for easier processing of a F<cookies.txt> file.
+If the key is not specified, it defaults to the script name with "-cache.txt" suffix appended.
+
+  cachefile=/tmp/${scriptname}-cache.txt
+
+=item B<cachefile3>
+
+The cached expression of the transformed permitted host list. It is suitable for easier processing of a F<cookies.sqlite> database.
+If the key is not specified, it defaults to the script name with "-cache3.txt" suffix appended.
+
+  cachefile3=/tmp/${scriptname}-cache3.txt
+
+=back
+
+=head2 Permitted hosts file
+
+Lines starting with hash ( # ) are comments. Comments and empty lines are ignored.
+
+Each line of the file contains a host name as it appears in the cookie. So leading subdomain, dot ( . ) or nothing is significant.
+
+To specify no host, use a dash ( - ) alone in its line.
+
+  -
+  tek-tips.com
+  rootshell.be
+
+=head1 EXIT STATUS
+
+=over
+
+=item B<0>
+
+ok, done successfully
+
+=item B<1>
+
+ini file not found
+
+=item B<2>
+
+ok file not found
+
+=item B<3>
+
+no profile defined
+
+=back
+
+=head1 ENVIRONMENT
+
+The usual environment variables can be used in the configuration file.
+
+=head1 FILES
+
+=over
+
+=item F<cookieclean.ini>
+
+The configuration file.	Actually its name is composed from the script's name and ".ini" extension.
+
+=item F<cookieclean.ok>
+
+The list of permitted hosts. Actually its name is set in the configuration file.
+
+=back
+
+=head1 SEE ALSO
+
+bash(1), sqlite3(1), grep(1), sed(1)
+
+Comments in F<cookieclean.ini>, I hope you kept a clean copy.
+
+=head1 TO DO
+
+Protection against SQL injection.
+
+Maybe an automatically generated cleaning statistic.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut

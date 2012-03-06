@@ -1,0 +1,170 @@
+--name=mpc.sh
+--release=1.6
+--date=May 2011
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<mpc.sh> - simple frontend for the mpc client for mpd
+
+=head1 SYNOPSIS
+
+B<mpc.sh> [B<main>|B<playlist>]
+
+=head1 OPTIONS
+
+The script is intended to be used in graphic environment, without involving dialog utilities. It "draws" its interface to the standard output and uses xterm(1) for holding it.
+As the command run inside an xterm(1) instance is a separate process, the parameters are used to communicate to the child process which window to draw.
+
+=over
+
+=item B<main>
+
+Display the main window.
+
+=item B<playlist>
+
+Display the playlist window.
+
+=back
+
+=head1 DESCRIPTION
+
+Just a rudimental frontend for the most basic music playing functionalities.
+
+Its interface is composed by two windows : the main window containing the common playback controls and the playlist dialog containing the playlist window loading funtionality.
+
+=head2 The main window
+
+The following commands can be executed with a single key press :
+
+=over
+
+=item B<z>
+
+Starts playing previous song. ( B<mpc> B<prev> )
+
+=item B<x>
+
+Starts playing. ( B<mpc> B<play> )
+
+=item B<c>
+
+Pauses playing. ( B<mpc> B<pause> )
+
+=item B<v>
+
+Stops playing. ( B<mpc> B<stop> )
+
+=item B<b>
+
+Starts playing next song on playlist. ( B<mpc> B<next> )
+
+=item B<r>
+
+Toggle repeat mode. ( B<mpc> B<repeat> )
+
+=item B<s>
+
+Toggle random mode. ( B<mpc> B<random> )
+
+=item B<i>
+
+Toggle single mode. ( B<mpc> B<single> ) ( Requires mpd(1) version 0.16. )
+
+=item B<a>
+
+Jumps back to current song's beginninge. ( B<mpc> B<seek 0%>)
+
+=item B<f>
+
+Toggle crossfade. ( B<mpc> B<crossfade> B<0>|B<2> )
+
+=item B<m> B<1> B<2> B<3> B<4> B<5> B<6> B<7> B<8> B<9> B<0> B<+> B<->
+
+Sets the volume to a value based on the pressed key : 0% for B<m>, 100% for B<0> or the key's numeric value multiplied with 10 for the rest. The B<+> and B<-> increments
+and decrements the volume with 10%. ( B<mpc> B<volume> [B<+>|B<->]I<value> )
+
+=item B<p>
+
+Open the playlist window. ( B<mpc> B<lsplaylists>, B<mpc> B<clear>, B<mpc> B<load> I<playlist> )
+
+=item B<?>
+
+Open the status information window. ( B<mpc> B<version>, B<mpc> B<help>, B<mpc> B<stats> )
+
+=back
+
+If no command is executed in 5 seconds or other key is pressed, the script exits doing nothing.
+
+=head2 The playlist window
+
+The list of playlists is limited to 260 entries, displayed on 10 pages, 26 entries on each page.
+
+=over
+
+=item B<1> B<2> B<3> B<4> B<5> B<6> B<7> B<8> B<9> B<0> B<+> B<->
+
+Changes to a given page by number for numeric keys. Page numbering starts from 1 and ends with 0, meaning 10. ( Quite dumb, but at least similar with the volume changer.
+) The B<+> and B<-> changes to the next/previous page.
+
+=item B<a> .. B<z>
+
+Clears the current playlist then loads the playlist assigned to the given letter.
+
+=item B<A> .. B<Z>
+
+Loads the playlist assigned to the given letter.
+
+=back
+
+If no command is executed in 15 seconds or other key is pressed, the script exits doing nothing.
+
+In both windows, after the command is executed, the script exits so the "interface" disappears. The visual effect may be visible only the next time :
+
+=head2 The status information window
+
+Displays the server, the client and the script version.
+
+=over
+
+=item
+
+The B<z>, B<b> and B<a> commands are like push buttons : the commands are executed without persistent effect.
+
+=item
+
+The B<x>, B<c> and B<v> commands are like radio buttons : one of them is always active.
+
+=item
+
+The B<r>, B<s>, B<i> and B<f> commands are like checkboxes : each can be set or cleared independently.
+
+=back
+
+=head1 SEE ALSO
+
+mpd(1), mpc(1), xterm(1), sort(1), wc(1), sed(1)
+
+=head1 TO DO
+
+A few minor configuration pieces for the terminal would be nice.
+
+( Remove the playlist limitation, if I will have a good idea for it. ) Rethink the playlist list paging and maybe remove it.
+
+Implement some simple sticker operations.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut
