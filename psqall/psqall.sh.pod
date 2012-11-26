@@ -1,0 +1,135 @@
+--name=psqall.sh
+--release=1.1
+--date=November 2012
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<psqall.sh> - execute SQL commands on more databases
+
+=head1 SYNOPSIS
+
+B<psqall.sh> [B<-d>|B<-D> I<database> [I<...>]] [B<-L>] [B<-i> I<inifile>] I<psql-param> [I<...>]
+
+=head1 OPTIONS
+
+=over
+
+=item B<-d> I<database>, B<--dbname=>I<database>
+
+execute the commands on this database ( default : all )
+
+=item B<-D> I<database>, B<--exclude=>I<database>
+
+skip this database ( default : none )
+
+=item B<-L> B<--line-prefix>
+
+display the database name as prefix in each result line ( default : no )
+
+=item B<-i> I<inifile>, B<--inifile=>I<inifile>
+
+configuration file ( default : F<psqall.ini> )
+
+=item I<psql-param>
+
+parameters that psql(1) accepts ( default : none )
+
+=back
+
+In either case the databases can be specified by name or regular expression which matches their name. Both B<-d> and B<-D> can be repeated, B<-d> takes precedence over
+B<-D>.
+
+The default configuration file called F<psqall.ini> is always processed, unless empty string is specified as inifile.
+
+=head1 DESCRIPTION
+
+B<psqall.sh> is intended to be a small tool for automating some database related activities.
+
+Mainly was written to give fast overviews in case there are many test databases on a development server, all with similar structure but slightly different data.
+
+Also can be used to execute some database updates on all the available databases.
+
+=head1 SYNTAX
+
+The configuration file is has .ini format, but it actually is more relaxed :
+
+=over 4
+
+=item comments may begin with either B<#> or B<;>
+
+=item keys and values may be separated by either B<=>, B<:> or space
+
+=item sections are ignored ( lines starting with B<[> are treated like comments )
+
+=back
+
+A typical configuration file looks like this :
+
+  [database]
+  include=.*_test
+  exclude=template1
+
+  [output]
+  lineprefix=1
+
+The following keys are handled :
+
+=over 4
+
+=item B<include>
+
+Similar with the B<-d> command line option, specifies database to execute the statements on.
+
+=item B<exclude>
+
+Similar with the B<-D> command line option, specifies database to skip from execution.
+
+=item B<lineprefix>
+
+Similar with the B<-L> command line option, specifies whether the output format should be line prefixed.
+
+When its value is anything else than empty string and I<0>, line prefixed format gets turned on.
+
+=back
+
+When the I<database> specified with the B<-d> or B<-D> switch or the B<include> or B<exclude> configuration key contains one of the C<.>, C<?>, C<*>, C<+>, C<(>, C<)>,
+C<[>, C<]>, C<{> and C<}> metacharacters, it will be interpreted as regular expression and matched case insensitively against the database names, otherwise will be
+interpreted as string and compared case sensitively with the database names.
+
+=head1 ENVIRONMENT
+
+The environment variables accepted by psql(1) can be set. Setting B<PGDATABASE> is pointless as it will be always overridden by parameter.
+
+=head1 FILES
+
+=over
+
+=item F<psqall.ini>
+
+The default configuration file. Actually has the same name as the script, but with extension changed to ".ini".
+
+=back
+
+=head1 SEE ALSO
+
+bash(1), psql(1)
+
+=head1 TO DO
+
+Maybe handling of joined short parameters.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut

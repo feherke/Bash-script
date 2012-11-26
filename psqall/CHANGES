@@ -1,0 +1,15 @@
+0.1 - May 2004
+  [+] Initial release, in Perl.
+
+1.0 - December 2008
+  [*] Rewritten in Bash.
+
+1.1 - November 2012
+  [*] -y option changed to -D.
+  [+] New configuration entry, include.
+  [+] New configuration entry, lineprefix.
+  [-] -r, --regular-expression switch removed.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )
