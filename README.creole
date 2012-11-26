@@ -19,5 +19,6 @@ Here are some scripts I wrote.
 * **psqall.sh** - Runs the psql tool in a loop for more databases of the same server.
 * **seq.sh** - Use the seq command to replace numeric part of a string with numeric sequences and multiplying the string.
 * **onceaday.sh** - Run commands enumerated in a configuration file, conditionally, only once a day.
+* **psqall.sh** - Runs the psql tool in a loop for more databases of the same server.
 
 These scripts were intentionally kept short. For details see the [[http://feherke.github.com/bash/|Bash section of my site]].
