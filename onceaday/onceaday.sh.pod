@@ -15,7 +15,7 @@ B<onceaday.sh> [B<-d> I<date>] [B<-a>] [B<-f>] [B<-n>] [B<-s>]
 =head1 DESCRIPTION
 
 onceaday.sh is kind of reminder organizer. The idea way to have some commands runned each day only once and when the user is at the computer. To achive this, the easiest
-way is to put those commands in the shell's resource file. ( For example in case of bash(1) in then I<~/.bashrc> file. )
+way is to put those commands in the shell's resource file. ( For example in case of bash(1) in then F<~/.bashrc> file. )
 
 But a so simple script would be boring, so for each command a time pattern tells when should that run. ( See B<SYNTAX> below. )
 
@@ -37,7 +37,7 @@ Force running, even if already runned today.
 
 =item B<-n>, B<--no-touch>
 
-Do not touch the timestamp file, I<~/.onceaday>.
+Do not touch the timestamp file, F<~/.onceaday>.
 
 =item B<-s>, B<--show>
 
@@ -49,7 +49,7 @@ The use of B<-d> and B<-a> parameters implicitely set the B<-f> and B<-n> parame
 
 =head1 SYNTAX
 
-This section describes the format of the I<onceaday.ini> file. It's name is somehow incorrect because it's format is much similar too crontab(5). With a few differences,
+This section describes the format of the F<onceaday.ini> file. It's name is somehow incorrect because it's format is much similar too crontab(5). With a few differences,
 of course.
 
 The empty lines, lines with less then 6 words and lines begining with B<#> ( sharp ) are ignored. Valid lines has the format :
@@ -162,11 +162,11 @@ The B<~> ( tilde ) at the begining of path is substituted with the value of B<HO
 
 =over
 
-=item I<onceaday.ini>
+=item F<onceaday.ini>
 
 This must be in the same directory where the script is. It's format is very similar to crontab(5) files. ( See B<SYNTAX> above. )
 
-=item I<~/.onceaday>
+=item F<~/.onceaday>
 
 Is used just to keep the date of last run. The file has 0 size, only it's modification time is tested and touch(1) -ed.
 
