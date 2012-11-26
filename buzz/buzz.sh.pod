@@ -1,0 +1,76 @@
+--name=buzz.sh
+--release=1.1
+--date=September 2008
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<buzz.sh> - displays a predefined message at a given time
+
+=head1 SYNOPSIS
+
+B<buzz.sh> I<time>
+
+=head1 OPTIONS
+
+=over
+
+=item I<time> absolute or relative time, as required by at(1) :
+
+=over
+
+=item I<H> I<day-part>
+
+=item I<HH:MM> [I<month-name> I<DD> [I<YY>[I<YY>]]]
+
+=item I<HH:MM DD.MM.YY>
+
+=item B<now +> I<count time-unit>
+
+=back
+
+=back
+
+=head1 DESCRIPTION
+
+Schedules an at(1) job to pop up a message using various commands.
+
+Currently the following commands are supported : xmessage(1), Xdialog(1), kdialog(1), gdialog(1), zenity(1), xterm(1), eterm(1), aterm(1), terminal(1), konsole(1). If
+none of the commands is found, the message be simply written to B<stdout>, letting the daemon to deliver it to the local mailbox.
+
+This script was optimized for simplicity, there is no explicit configuration. However the order of checking for the above commands and the predefined message can be
+easily modified in the script itself.
+
+=head1 ENVIRONMENT
+
+=over
+
+=item B<DISPLAY>
+
+The value of the current DISPLAY is set for the job. If not set, displaying the message by the atd(8) will probably fail.
+
+=back
+
+=head1 SEE ALSO
+
+bash(1), at(1);
+xmessage(1), Xdialog(1), kdialog(1), gdialog(1), zenity(1), xterm(1), eterm(1), aterm(1), terminal(1), konsole(1)
+
+=head1 TO DO
+
+Add more commands to display the messages.
+
+Better configuration for the currently used commands.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke

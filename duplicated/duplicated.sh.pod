@@ -1,0 +1,108 @@
+--name=duplicated.sh
+--release=1.4
+--date=August 2008
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<duplicated.sh> - search for multiple files with the same content
+
+=head1 SYNOPSIS
+
+B<duplicated.sh> [B<-s> I<size>] [B<-a> I<algorithm>] [I<directory> [I<...>]]
+
+=head1 OPTIONS
+
+=over
+
+=item B<-s> I<size>, B<--size=>I<size>
+
+file size limit; files smaller than the limit are not checked ( default : 0 )
+
+=item B<-a> I<algorithm>, B<--algo=>I<algorithm>
+
+checksum algorithm; possible values : B<MD5> B<SHA1>  ( default : B<MD5> )
+
+=item I<directory>
+
+path to directory to be included in search ( default : . )
+
+=back
+
+=head1 DESCRIPTION
+
+Searches recursively the given directories and checks for duplicated content using checksums.
+
+Checksum calculation is quite slow, so first the files are checked by size. For files with unique size the checksums are not calculated.
+
+As the MD5 checksum is calculated somehow faster, is recommended to be used as possible.
+
+This script was optimized for speed and kept compatible with old versions of the used tools.
+
+=head1 EXIT STATUS
+
+=over
+
+=item B<0>
+
+ok, done successfull
+
+=item B<1>
+
+invalid parameter, one of the following
+
+=over
+
+=item one or more of the specified directories does not exist
+
+=item the specified size is not a positive integer
+
+=item the specified checksum algorithm is not known
+
+=back
+
+=item B<2>
+
+checksum tool not found :
+
+=over
+
+=item md5sum(1) for MD5 checksum algorithm
+
+=item sha1sum(1) for SHA1 checksum algorithm
+
+=back
+
+=back
+
+=head1 FILES
+
+=over
+
+=item F<duplicated.txt>
+
+the list of all duplicated files, grouped by identical content, groups separated with an empty line
+
+=back
+
+=head1 SEE ALSO
+
+bash(1), find(1), md5sum(1), sha1sum(1);
+uniq(1), grep(1), awk(1), xargs(1)
+
+=head1 TO DO
+
+Work with more checksum tools, for example openssl(1).
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke

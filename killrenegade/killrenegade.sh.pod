@@ -1,0 +1,150 @@
+--name=killrenegade.sh
+--release=1.2
+--date=August 2008
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<killrenegade.sh> - kill processes exceeding limits
+
+=head1 SYNOPSIS
+
+B<killrenegade.sh> [B<-i> I<inifile>] [B<-V>]
+
+=head1 OPTIONS
+
+=over
+
+=item B<-i> I<inifile>, B<--ini=>I<inifile>
+
+settings file to be read ( default : B<killrenegade.ini> )
+
+=item B<-V>, B<--verbose>
+
+verbose mode, use twice for more verbose ( default : no )
+
+=back
+
+=head1 DESCRIPTION
+
+Kill the processes with given name which uses too much resources.
+
+The script run endlessly, checking for processes that match the given conditions. Between steps will sleep until the next scheduled hunt time. Building the statistic is
+done when awake for a check.
+
+=head1 SYNTAX
+
+In the settings file are separate sections for each job. Exception is the I<general> section, which contains just some preferences. The other sections describe a
+process hunting each, excepting the section I<default>. It contains default values to use if in a section some options are not set.
+
+The section names are only identifiers, the keys in each section could be :
+
+=over
+
+=item B<command>
+
+command name to kill, can not be empty
+
+=item B<user>
+
+list of users desired to be treated different than othes
+
+=item B<belong>
+
+ownership relation of users in the list and processes :
+
+=over
+
+=item I<yes>
+
+kill only processes owned by the enumerated users
+
+=item I<no>
+
+do not kill processes owned by the enumerated users
+
+=back
+
+=item B<processor>
+
+percentage of processor usage, over which processes will be killed
+
+=item B<memory>
+
+percentage of memory usage, over which processes will be killed
+
+=item B<signal>
+
+list of signals to send to the processes; if a send fails, the next signal will be sent
+
+=item B<interval>
+
+sleeping interval between checks; the script will wake up only when is time to hunt
+
+=back
+
+=head1 EXIT STATUS
+
+=over
+
+=item B<0>
+
+ok, done successfull
+
+=item B<1>
+
+the settings file was not found
+
+=item B<2>
+
+the settings file contains errors
+
+=back
+
+=head1 ENVIRONMENT
+
+=over
+
+=item B<USER>
+
+the current user's name is used to see who's processes can be killed; if is not root, can kill only own processes
+
+=back
+
+=head1 FILES
+
+=over
+
+=item F<killrenegade.ini>
+
+in facts is the name of the script with extension changed to .ini
+
+=item F<killstatistic.awk>
+
+an awk(1) script to build HTML statistic from the plain text log file
+
+=back
+
+=head1 SEE ALSO
+
+bash(1), kill(1), ps(1);
+sleep(1), awk(1)
+
+comments in F<killrenegade.ini>, I hope you kept a clear copy
+
+=head1 TO DO
+
+Maybe a clemency option, to not kill processes the first time they are caught over limit.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke

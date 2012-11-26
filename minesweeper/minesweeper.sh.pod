@@ -1,0 +1,71 @@
+--name=minesweeper.sh
+--release=1.1
+--date=August 2008
+--section=6
+--center=Text mode game
+
+=head1 NAME
+
+B<minesweeper.sh> - the classic game in text mode
+
+=head1 SYNOPSIS
+
+B<minesweeper.sh>
+
+=head1 DESCRIPTION
+
+The conceptually good games are not tied to the graphic environment or fancy input devices. And they absolutely not need cheap visual effects. In text mode you can
+enjoy the real flavour of the game.
+
+=head1 OPTIONS
+
+none
+
+=head1 RULES
+
+The board is composed by square of stones and a number of randomly placed mines, under the stones. The goal is to mark all the mined stones with flags. When you step on
+a stone, if under that one is a mine, you die and the game is over. Else the stone is removed. If there is no mine neighter under the nearest stones, then they will be
+also removed, until a mine is aproached. In the place of the removed stones a number will appear which shows how many of the nearest stones are mined.
+
+=head1 KEYS
+
+For the movements more keys are associated ( Beside this, also the arrow keys should work. ) :
+
+  layout    left  down  up  right  step   flag
+  Vi        B<h>     B<j>     B<k>   B<l>      B<g>      B<f>
+  Lefthand  B<a>     B<s>     B<w>   B<d>      B<Space>  B<f>
+  Numeric   B<4>     B<2>     B<8>   B<6>      B<Enter>  B<0>
+
+The size of the board is choosen by the key used to start a new game, as follows :
+
+  key  board   size   mines
+  n    Small   10*10  15
+  N    Medium  15*15  33
+  m    Large   20*20  60
+  M    Extra   30*20  90
+
+And some other keys :
+
+  key  command
+  r    redraw the board
+  q    quit the script
+
+=head1 SEE ALSO
+
+bash(1), tput(1), terminfo(5)
+
+=head1 TO DO
+
+Would be nice to keep the high scores somewhere.
+
+=head1 BUGS
+
+Probably the key handling will not work on some terminals.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
