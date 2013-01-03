@@ -1,0 +1,61 @@
+--name=seq.sh
+--release=1.2
+--date=April 2008
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<seq.sh> - embeded seq(1)
+
+=head1 SYNOPSIS
+
+B<seq.sh>
+
+=head1 OPTIONS
+
+None
+
+=head1 DESCRIPTION
+
+Kind of embeded B<seq>, with recursive call.
+
+Read the standard input, parse each line of text and extend the embeded B<seq> parameters delimited with braces, also replacing the hash level marks too.
+
+=head1 SYNTAX
+
+=over 4
+
+=item C<{[-w] [from [by]] to}>
+
+the usual parameters for B<seq> command
+
+=item C<{#level}>
+
+replace with the value of the given counter
+
+=back
+
+=head1 SEE ALSO
+
+bash(1), seq(1);  sed(1)
+
+=head1 TO DO
+
+Should be nice to make it to use character sequences and roman numbers. (Ok, the second is just a joke.)
+
+As far as is used for URLs, the B<{> .. B<}> markup is ok, but it should be setable through parameters.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut

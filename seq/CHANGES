@@ -1,0 +1,13 @@
+1.0
+  [+] Initial release.
+
+1.1 - December 2004
+  [+] Placeholders prefixed with hash ( # ) are replaced with the sequential value of the placeholder with the given order number.
+
+1.2 - April 2008
+  [*] Minor optimizations.
+  [*] Portable sh code replaced with Bash specific alternatives.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )
