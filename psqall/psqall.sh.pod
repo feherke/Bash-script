@@ -57,11 +57,17 @@ The configuration file is has .ini format, but it actually is more relaxed :
 
 =over 4
 
-=item comments may begin with either B<#> or B<;>
+=item *
 
-=item keys and values may be separated by either B<=>, B<:> or space
+comments may begin with either B<#> or B<;>
 
-=item sections are ignored ( lines starting with B<[> are treated like comments )
+=item *
+
+keys and values may be separated by either B<=>, B<:> or space
+
+=item *
+
+sections are ignored ( lines starting with B<[> are treated like comments )
 
 =back
 
