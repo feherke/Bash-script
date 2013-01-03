@@ -1,51 +1,67 @@
-]2;man ./mksfx.sh.1mksfx.sh(1)                                                             Usefull Shell Script                                                             mksfx.sh(1)
+--name=mpc.sh
+--release=1.1
+--date=August 2008
+--section=1
+--center=Useful Shell Script
 
+=head1 NAME
 
+B<mksfx.sh> - make SelFeXtractor archive
 
-NAME
-       mksfx.sh - make SelFeXtractor archive
+=head1 SYNOPSIS
 
-SYNOPSIS
-       mksfx.sh [-x sfxname] [-c compression] [-r runname] [directory]
+B<mksfx.sh> [B<-x> I<sfxname>] [B<-c> I<compression>] [B<-r> I<runname>] [I<directory>]
 
-OPTIONS
-       directory
-              name of the directory to compress (default : current directory)
+=head1 OPTIONS
 
-       -x sfxname, --sfx=sfxname
-              file name to create (default : same as for directory)
+=over 4
 
-       -c compression, --compress=compression
-              compression method, could be : gzip, bzip2 (default : gzip)
+=item I<directory>
 
-       -r runname, --run=runname
-              name of the file to run after uncompressing (default : run.sh)
+name of the directory to compress ( default : current directory )
 
-DESCRIPTION
-       Compress the archived content of a directory, then add an autoextract head to the file, so it will look and act as a bash(1) script. The executable head is
-       kept small and simple, so there are no paranoia checkings included.
+=item B<-x> I<sfxname>, B<--sfx=>I<sfxname>
 
-       When the current directory is comperessed, the script will exclude itself from the archive.
+file name to create ( default : same as for directory )
 
-       When the selfextractor is executed, it's header part will decompress it's data part to a random named temporary directory in the /tmp/ directory, then if an
-       autorun script exist, will run it.
+=item B<-c> I<compression>, B<--compress=>I<compression>
 
-SEE ALSO
-       bash(1), gzip(1), bzip2(1), tar(1);  sed(1), grep(1), mktemp(1)
+compression method, could be : B<gzip>, B<bzip2> ( default : B<gzip> )
 
-TO DO
-       Is somehow strange the use of the temporary directory, so it probably will be made optional. Also optionally some integrity check would be nice.
+=item B<-r> I<runname>, B<--run=>I<runname>
 
-BUGS
-       No bugs until now. Found bugs can be reported to the author.
+name of the file to run after uncompressing ( default : run.sh )
 
-COPYRIGHT
-       Use it healthy.
+=back
 
-AUTHOR
-       Feherke
+=head1 DESCRIPTION
 
+Compress the archived content of a directory, then add an autoextract head to the file, so it will look and act as a bash(1) script. The executable head is kept small
+and simple, so there are no paranoia checkings included.
 
+When the current directory is compressed, the script will exclude itself from the archive.
 
-August 2008                                                                      1.1                                                                     mksfx.sh(1)
-]2;xterm-color
+When the selfextractor is executed, it's header part will decompress it's data part to a random named temporary directory in the F</tmp/> directory, then if an autorun
+script exist, will run it.
+
+=head1 SEE ALSO
+
+bash(1), gzip(1), bzip2(1), tar(1);  sed(1), grep(1), mktemp(1)
+
+=head1 TO DO
+
+Is somehow strange the use of the temporary directory, so it probably will be made optional. Also optionally some integrity check would be nice.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut
