@@ -1,0 +1,59 @@
+--name=taborder.sh
+--release=2.0
+--date=September 2010
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<taborder.sh> - reorders the controls in the Delphi/Kylix .xfm form file based on the property declaration order the .pas source file.
+
+=head1 SYNOPSIS
+
+B<taborder.sh> I<file>
+
+=head1 OPTIONS
+
+=over
+
+=item I<file> name of the file to reorder, with or without the .xfm or .pas extension
+
+=back
+
+=head1 DESCRIPTION
+
+In Delphi/Kylix there are two orders : the tab order and the Z stack order. The Z stacking order can not be edited directly, to force a certain stack position, the IDE
+modifies the creation order by physically moving the declaration inside the form file.
+
+Beside that, the tabbing order sometimes is partially reset, by some editing actions in the IDE.
+
+B<taborder.sh> splits up the XFM file into pieces, each control in separate file. Then joins the pieces back based on the declaration order in the Pas file. During the
+joining it also renumbers the B<TabOrder> properties to match the new order.
+
+=head1 ENVIRONMENT
+
+The temporary data is placed in the directory indicated by the B<TEMP>, B<TMP> or B<TMPDIR> environment variable. If none is set, the I</tmp/> directory is used.
+
+=head1 SEE ALSO
+
+sed(1), grep(1)
+
+=head1 TO DO
+
+Read pieces up to a semicolor ( ; ), not to line end.
+
+Handle comments.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut

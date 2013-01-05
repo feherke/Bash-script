@@ -1,0 +1,2 @@
+* Read pieces up to a semicolor ( ; ), not to line end.
+* Handle comments.
