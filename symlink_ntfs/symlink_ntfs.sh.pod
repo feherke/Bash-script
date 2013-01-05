@@ -1,0 +1,72 @@
+--name=symlink_ntfs.sh
+--release=1.0
+--date=May 2011
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<symlink_ntfs.sh> - restores symlinks after being copied to NTFS filesystem and back
+
+=head1 SYNOPSIS
+
+B<symlink_ntfs.sh> [B<-m> I<size>] [B<-r>] [B<-c> [I<suffix>]] [B<-s>] [I<path> [I<...>]]
+
+=head1 OPTIONS
+
+=over
+
+=item I<file> name of the file to reorder, with or without the .xfm or .pas extension
+
+=item B<-m> I<size>, B<--max-size>=I<size>
+
+Maximum size of files to check for symlinks. I<size> has to be an integer greater than 10. The value is specified in bytes, units of measurement are not allowed.
+Default : 1024.
+
+=item B<-r>, B<--recursive>
+
+Search the directories recursively. Default : no, only the specified directories themselves.
+
+=item B<-c> I<suffix>, B<--cautious>=I<suffix>
+
+Renames the found files instead of removing them. This is useful to make sure no data get lost in case the symlink can not be created. Default : no renaming, remove the
+files. Default suffix : .back_from_ntfs.
+
+=item B<-s>, B<--simulate>
+
+Do not change anything, just list what could be changed if would run for real. Default : no simulation, run for real.
+
+=item I<path>
+
+File or directory to check. Multiple files and directories can de specified. With B<--recursive> option specified, the directories will be searched recursively. Default
+: . ( current directory ).
+
+=back
+
+=head1 DESCRIPTION
+
+When symlinks are copied to NTFS filesystem they get trasformed into regular files starting with "IntxLNK" then following the link target path in UTF-16 encoding.
+
+This script searches for such files and creates new symlinks based on their information.
+
+=head1 SEE ALSO
+
+ln(1), find(1), recode(1)
+
+=head1 TO DO
+
+No improvement intended.
+
+=head1 BUGS
+
+No bugs until now. Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Use it healthy.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut
