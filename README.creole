@@ -23,5 +23,6 @@ Here are some scripts I wrote.
 * **seq.sh** - Use the seq command to replace numeric part of a string with numeric sequences and multiplying the string.
 * **symlink_ntfs.sh** - Restores symlinks after copying them to NTFS and back.
 * **taborder.sh** - Reorders the controls in the XFM file based on the declarations in the Pas file.
+* **termclock.sh** - Analog clock displayed using only bash arithmetics and tput.
 
 These scripts were intentionally kept short. For details see the [[http://feherke.github.com/bash/|Bash section of my site]].
