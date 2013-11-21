@@ -1,0 +1,171 @@
+--name=pacman.sh
+--release=0.4
+--date=September 2011
+--section=1
+--center=Useful Shell Script
+
+=head1 NAME
+
+B<pacman.sh> - Pacman-G2 Wrapper
+
+=head1 SYNOPSIS
+
+B<pacman.sh> I<operation>
+
+=head1 DESCRIPTION
+
+Pacman-G2 Wrapper adds some frequently needed minor functionalities to Pacman-G2.
+
+Actually does nothing new, it only filters and formats some output data.
+
+Unknown operations are passed forward unaltered to pacman-g2(1).
+
+Although the wrapper script only reads data ( either through pacman-g2(1) or directly ), for security reason it refuses to work when run by superuser.
+
+=head1 OPERATIONS
+
+=over
+
+=item B<-W>
+
+For similarity with pacman-g2(1) syntax and hoping there will be no future conflicts, the options implemented in the wrapper are available through the B<-W> operation.
+The only syntax supported by the wrapper is concatenated POSIX short options. ( That is what most of the documentations use. ) So no GNU long options, no separated
+options and definitely no mixture of pacman-g2(1) and wrapper options.
+
+=back
+
+=head1 OPTIONS
+
+=over
+
+=item B<-Wu> I<regexp>
+
+Search for uninstalled package. From the B<-Ss> I<regexp> output keeps only those _not_ containing the "Installed" string.
+
+=item B<-Wsn> I<regexp>
+
+Search for package name. From the B<-Ss> I<regexp> output keeps only those where the package name matches I<regexp>.
+
+=item B<-Wqn> I<regexp>
+
+Search for installed package name. From the B<-Qs> I<regexp> output keeps only those where the package name matches I<regexp>.
+
+=item B<-Wun> I<regexp>
+
+Search for uninstalled package name. From the B<-Wn> I<regexp> output keeps only those where the package name matches I<regexp>.
+
+=item B<-Wc> I<package> [I<...>]
+
+List changelog-like files. From the B<-Ql> I<package> output keeps only plain text files named "ChangeLog", "CHANGELOG", "CHANGES" or "NEWS".
+
+=item B<-Wcv> I<package> [I<...>]
+
+View changelog-like files with B<$PAGER>. Passes the B<-Wc> I<package> output to the pager.
+
+=item B<-Wx> I<package> [I<...>]
+
+List executable files. From the B<-Ql> I<package> output keeps only regular files with executable permission.
+
+=item B<-Wxp> I<package> [I<...>]
+
+List executable files on B<$PATH>. From the B<-Wx> I<package> output keeps only files located on the B<$PATH>.
+
+=item B<-Wd> I<package> [I<...>]
+
+List recursive dependencies. From the B<-Qi> I<package> or B<-Si> I<package> outputs keeps only the "Depends On" lines. For each item on such line runs B<-Wd> item.
+Multiple dependencies are listed only once.
+
+=item B<-Wdt> I<package> [I<...>]
+
+Tree recursive dependencies. Arranges the B<-Wd> I<package> output in ASCII tree format. Multiple dependencies are not reduced to first occurrence.
+
+=item B<-Wox> I<command> [I<...>]
+
+Prints the owner of the commands on B<$PATH>. Executes B<-Qo> on the files returned by which(1) I<command>.
+
+=item B<-Wh> I<package>
+
+Package operation history. Searches through the log file for entries related to the given I<package>.
+
+=item B<-Wn>
+
+Show some statistical number. Some package counts and some configuration facts.
+
+=item B<-Wv>
+
+Print wrapper version. And release date. And author name.
+
+=item B<-W?>
+
+Print wrapper help. Just a short enumeration of the implemented commands.
+
+=back
+
+=head1 FILES
+
+=over
+
+=item F</etc/pacman-g2.conf>, F</etc/pacman-g2/repos/frugalware>, F</etc/pacman-g2/repos/frugalware-current>
+
+Pacman-G2 configuration files from where the configuration values are loaded.
+
+=item F</var/log/pacman-g2.log>
+
+The B<-Wh> ( package operation history ) option uses this file to find package related events.
+
+=item F</var/cache/pacman-g2/pkg/>
+
+The B<-Wn> ( show some statistical number ) option uses this directory to collect the cache information.
+
+=item F</var/lib/pacman-g2/local.lastupdate>
+
+The B<-Wn> ( show some statistical number ) option uses this file to find out the last local update time.
+
+=back
+
+=head1 ENVIRONMENT
+
+=over
+
+=item B<$PAGER>
+
+The B<-Wcv> ( view changelog-like files ) option uses this value to display the found files.
+
+=item B<$PATH>
+
+The B<-Wxp> ( list executables on B<$PATH> ) option uses this value to filter the files on B<$PATH>.
+
+=back
+
+=head1 SEE ALSO
+
+pacman-g2(1), bash(1), file(1), awk(1), cut(1), wc(1), which(1), date(1), less(1)
+
+=head1 TO DO
+
+List summarized recursive dependencies.
+
+Add more statistical information.
+
+=head1 BUGS
+
+The filtering the search results by package name uses awk(1)'s regular expression capabilities, which probably differs from pacman-g2(1)'s regular expression handling.
+This may lead to wrong results when searching in package names with regular expression. Using perl(1) instead of awk(1) would probably reduce the amount of such errors,
+but such change is not planned for now.
+
+Found bugs can be reported to the author.
+
+=head1 COPYRIGHT
+
+Copyright © 2011, Feherke.
+
+Released under terms of GPLv3 ( GNU General Public License version 3 or later <http://gnu.org/licenses/gpl.html> ).
+
+This is free software -- you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+=head1 AUTHOR
+
+Feherke
+
+=cut

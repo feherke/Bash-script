@@ -154,7 +154,7 @@ echo -n 'recreating the file... '
 for part in 'pre' 'all' 'post'; do
   cat "$temp/data.$part" >> "$file.xfm"
 done
-echo "ok, $file.xfm"
+echo "ok, ${file##*/}.xfm"
 
 echo -n 'deleting temporary files... '
 rm -rf "$temp"

@@ -1,0 +1,19 @@
+0.1 - September 2011
+  [+] Initial release.
+
+0.2 - September 2011
+  [*] Unified the wrapper command ( -W ).
+  [+] Search uninstalled package description and name ( -Wu, -Wun ).
+  [+] Search package history ( -Wh ).
+
+0.3 - September 2011
+  [+] Print the owner of the commands on $PATH ( -Wox ).
+  [+] List package dependencies recursively ( -Wd ).
+  [+] Show some statistical number ( -Wn ).
+
+0.4 - September 2011
+  [+] Tree package dependencies recursively ( -Wdt ).
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )

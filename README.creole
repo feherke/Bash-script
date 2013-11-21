@@ -16,6 +16,7 @@ Here are some scripts I wrote.
 * **mksfx.sh** - Add a shell script header to a compressed file, to make it selfextractor.
 * **mpc.sh** - Just a rudimental frontend for the most basic music playing functionalities.
 * **onceaday.sh** - Run commands enumerated in a configuration file, conditionally, only once a day.
+* **pacman.sh** - Adds some frequently needed minor functionalities to pacman-g2.
 * **psqall.sh** - Runs the psql tool in a loop for more databases of the same server.
 * **seq.sh** - Use the seq command to replace numeric part of a string with numeric sequences and multiplying the string.
 * **onceaday.sh** - Run commands enumerated in a configuration file, conditionally, only once a day.
@@ -25,4 +26,4 @@ Here are some scripts I wrote.
 * **taborder.sh** - Reorders the controls in the XFM file based on the declarations in the Pas file.
 * **termclock.sh** - Analog clock displayed using only bash arithmetics and tput.
 
-These scripts were intentionally kept short. For details see the [[http://feherke.github.com/bash/|Bash section of my site]].
+These scripts were intentionally kept short. For details see the [[http://feherke.github.io/bash/|Bash section of my site]].

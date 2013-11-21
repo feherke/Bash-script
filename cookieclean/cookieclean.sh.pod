@@ -131,7 +131,7 @@ The usual environment variables can be used in the configuration file.
 
 =item F<cookieclean.ini>
 
-The configuration file.	Actually its name is composed from the script's name and ".ini" extension.
+The configuration file. Actually its name is composed from the script's name and ".ini" extension.
 
 =item F<cookieclean.ok>
 

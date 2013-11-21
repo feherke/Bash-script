@@ -2,12 +2,14 @@
   [+] Initial release.
 
 1.1 September 2008
-  [+] Alerts with the first tool found in a list of 10 notification tools :
-      xmessage, Xdialog, kdialog, gdialog, zenity, xterm, eterm, aterm, terminal, konsole
+  [+] Alerts with the first tool found in a list of 10 notification tools : xmessage, Xdialog, kdialog, gdialog, zenity, xterm, eterm, aterm, terminal, konsole.
 
 1.2 November 2010
-  [+] Added 3 more notification tools :
-      yad, vte, rxvt
+  [+] Added 3 more notification tools : yad, vte, rxvt.
+
+1.3 February 2013
+  [+] Added 3 more notification tools : gxmessage, gtkdialog, gnome-terminal.
+  [*] Added -title to the xterm notification.
 
 
 
