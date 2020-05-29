@@ -110,7 +110,14 @@ function putflag()
   (( board[cy*mx+cx]==10 )) && (( mf++ ))
   (( board[cy*mx+cx]==11 )) && (( mf-- ))
 
-  (( mf==mb )) && {
+  (( mf>=mb )) && {
+    if (( board[cy*mx+cx]==10 )); then
+      board[cy*mx+cx]=11
+    else
+      board[cy*mx+cx]=9
+      (( mf-- ))
+    fi
+
     n=0
     for ((i=0;i<mx;i++)); do for ((j=0;j<my;j++)); do
       (( bomb[j*mx+i]==1 && board[j*mx+i]==10 )) && (( n++ ))
@@ -118,8 +125,6 @@ function putflag()
   
     tput 'cup' 1 52
     echo -n $'\e[43;30mB)\e[0m'
-
-    status=0
   }
 
   tput 'cup' 1 47
